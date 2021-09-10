@@ -14,6 +14,7 @@ const data = {
 	  	
 * [x] React Hooks and Custom Hooks
 * [x] React Context API
+* [x] Most of the code is seperated into components for easy future fixes
 * [x] Auto Height Textbox in Add Form 
 * [x] Responsive Layout & Menus 
 * [x] Live Preview while inserting text into the textbox
