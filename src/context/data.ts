@@ -1,28 +1,40 @@
 const data = {
   notes: [
     {
-      id: 12345,
-      note: `**Tools Used**
-	  	
-		* [x] React
-		* [x] TailwindCss
-		`,
-      date: "September 10 2021",
-    },
-    {
       id: 123456,
-      note: `A paragraph with *emphasis* and **strong importance**.
-		> A block quote with ~strikethrough~ and a URL: https://reactjs.org.
+      note: `
+**Tools Used**
 
-		* Lists
-		* [ ] todo
-		* [x] done
+* React  
+* Typescript
+* TailwindCss
 
-		A table:
+		
+**Features**
+	  	
+* [x] React Hooks and Custom Hooks
+* [x] React Context API
+* [x] Auto Height Textbox in Add Form 
+* [x] Responsive Layout & Menus 
+* [x] Live Preview while inserting text into the textbox
 
-		| a | b |
-		| - | - |`,
-      date: "September 11 2021",
+**Utility Package**
+	  	
+* [x] react-markdown npm package
+
+**MarkDown Samples**
+
+A paragraph with *emphasis* and **strong importance**.
+> A block quote with ~strikethrough~ and a URL: https://reactjs.org.
+
+**Cons**
+
+* [x] No option to edit the note
+
+
+*I still hope this app can be improved so much better*
+`,
+      date: "September 10 2021",
     },
   ],
 };

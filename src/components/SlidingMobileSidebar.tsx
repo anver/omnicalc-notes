@@ -66,6 +66,7 @@ const SlidingMobileSidebar: React.FC<Props> = ({ show, onClose }) => {
               <nav aria-label="Sidebar" className="mt-5">
                 <div className="px-2 space-y-1">
                   <NavLink
+                    to="/"
                     Icon={CalendarIcon}
                     title="Dashboard"
                     selected={true}

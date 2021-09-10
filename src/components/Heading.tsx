@@ -9,17 +9,23 @@ type Props = {
   note: string;
   onUpdate: (e: React.ChangeEvent<HTMLTextAreaElement>) => void;
   addNote: () => void;
+  clearNote: () => void;
 };
 
-const Heading: React.FC<Props> = ({ note, onUpdate, addNote }) => {
+const Heading: React.FC<Props> = ({ note, onUpdate, addNote, clearNote }) => {
   const { notes } = useStateContext();
   const [toggleAddPopup, setToggleAddPopup] = useState(false);
+
+  const clearExistingNote = () => {
+    clearNote();
+    setToggleAddPopup(false);
+  };
 
   return (
     <>
       <PopupAddNote
         show={toggleAddPopup}
-        onClose={() => setToggleAddPopup(false)}
+        onClose={clearExistingNote}
         onAddClick={addNote}
       >
         <Textarea value={note} onUpdate={onUpdate} />

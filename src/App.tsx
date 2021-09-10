@@ -5,6 +5,7 @@ import Footer from "./components/Footer";
 import HeaderMobile from "./components/HeaderMobile";
 import Heading from "./components/Heading";
 import SidebarDesktop from "./components/SidebarDesktop";
+import SingleNote from "./components/SingleNote";
 import SlidingMobileSidebar from "./components/SlidingMobileSidebar";
 import { useDispatchContext } from "./context/appContext";
 import "./style.css";
@@ -27,6 +28,10 @@ const App: React.FC = () => {
       return;
     }
     dispatch({ type: "add", note });
+    clearNote();
+  };
+
+  const clearNote = () => {
     setNote("");
   };
 
@@ -34,9 +39,11 @@ const App: React.FC = () => {
   const openSidebar = () => setSidebarOpen(true);
 
   useEffect(() => {
-    sleep(3000).then(() => {
-      setError("");
-    });
+    if (error) {
+      sleep(3000).then(() => {
+        setError("");
+      });
+    }
   }, [error, setError]);
 
   return (
@@ -49,18 +56,24 @@ const App: React.FC = () => {
           <div className="flex-1 relative z-0 flex overflow-hidden">
             <main className="flex h-full flex-col flex-1 relative z-0 overflow-y-auto focus:outline-none">
               {error && <Error message={error} />}
-              <Heading note={note} onUpdate={onNoteUpdate} addNote={addNote} />
+              <Switch>
+                <Route path="/" exact>
+                  <Heading
+                    note={note}
+                    onUpdate={onNoteUpdate}
+                    addNote={addNote}
+                    clearNote={clearNote}
+                  />
+                </Route>
+                <Route path="/note/:id">
+                  <SingleNote />
+                </Route>
+              </Switch>
               <Footer />
             </main>
           </div>
         </div>
       </div>
-      {/* <Switch>
-        <Route path="/" exact>
-          Home
-        </Route>
-        <Route path="/about">About</Route>
-      </Switch> */}
     </Router>
   );
 };

@@ -1,13 +1,20 @@
+import { NavLink as Link } from "react-router-dom";
 type Props = {
   selected: boolean;
   Icon: (props: React.ComponentProps<"svg">) => JSX.Element;
   title: string;
+  to: string;
 };
 
-const NavLink: React.FC<Props> = ({ Icon, title = "", selected = false }) => {
+const NavLink: React.FC<Props> = ({
+  to = "/",
+  Icon,
+  title = "",
+  selected = false,
+}) => {
   return (
-    <a
-      href="https://google.com"
+    <Link
+      to={to}
       className={
         selected
           ? `bg-gray-100 text-gray-900 group flex items-center px-2 py-2 text-base font-medium rounded-md`
@@ -23,7 +30,7 @@ const NavLink: React.FC<Props> = ({ Icon, title = "", selected = false }) => {
         aria-hidden="true"
       />
       {title}
-    </a>
+    </Link>
   );
 };
 

@@ -18,8 +18,7 @@ const uniqueId = () => {
 const getDate = () => {
   var date = new Date();
   var n = date.toDateString();
-  var time = date.toLocaleTimeString();
-  return `${n}-${time}`;
+  return `${n}`;
 };
 
 const addItem = ({

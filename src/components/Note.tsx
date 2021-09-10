@@ -1,19 +1,29 @@
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 import { TNote, useDispatchContext } from "../context/appContext";
+import { useHistory } from "react-router-dom";
+
 type Props = { item: TNote };
 
 const Note: React.FC<Props> = ({ item }) => {
   const dispatch = useDispatchContext();
+  const history = useHistory();
 
   const onDeleteClick = () => {
     dispatch({ type: "del", id: item.id });
   };
 
+  const viewNote = () => {
+    history.push(`/note/${item.id}`);
+  };
+
   return (
     <div className="flex flex-col mb-8 bg-white rounded-2xl shadow-xl">
       <div className="flex-1 relative pt-16 px-6 pb-8 md:px-8">
-        <ReactMarkdown children={item.note} remarkPlugins={[remarkGfm]} />
+        <ReactMarkdown
+          children={item.note}
+          remarkPlugins={[remarkGfm]}
+        />
       </div>
       <div className="p-6 flex justify-between  bg-gray-50 rounded-bl-2xl rounded-br-2xl md:px-8">
         <button
@@ -23,10 +33,7 @@ const Note: React.FC<Props> = ({ item }) => {
         >
           Delete note
         </button>
-        <p
-          className="text-sm text-gray-500 self-center"
-          onClick={() => console.log("clicked")}
-        >
+        <p className="text-sm text-gray-500 self-center" onClick={viewNote}>
           <time dateTime={item.date} className="cursor-pointer">
             {item.date}
           </time>

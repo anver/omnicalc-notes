@@ -1,4 +1,4 @@
-import { CalendarIcon, HomeIcon } from "@heroicons/react/outline";
+import { HomeIcon } from "@heroicons/react/outline";
 import GithubSourceButton from "./GithubSourceButton";
 import NavLink from "./NavLink";
 
@@ -18,8 +18,12 @@ const SidebarDesktop = () => {
             </div>
             <nav className="mt-5 flex-1" aria-label="Sidebar">
               <div className="px-2 space-y-1">
-                <NavLink Icon={HomeIcon} title="Dashboard" selected={true} />
-                <NavLink Icon={CalendarIcon} title="Add Note" selected={true} />
+                <NavLink
+                  to="/"
+                  Icon={HomeIcon}
+                  title="Dashboard"
+                  selected={true}
+                />
               </div>
             </nav>
           </div>
