@@ -3,11 +3,10 @@ import React from "react";
 const GithubSourceButton = () => {
   const handleClick = (e: React.MouseEvent) => {
     e.preventDefault();
-    window.open("https://github.com/anver", "_blank");
+    window.open("https://github.com/anver/omnicalc-notes", "_blank");
   };
   return (
-    <a
-      href="#"
+    <button
       className="w-full inline-flex justify-center py-2 px-4 shadow-sm bg-gray-50 text-sm font-medium text-gray-500 hover:bg-gray-50"
       onClick={handleClick}
     >
@@ -24,7 +23,7 @@ const GithubSourceButton = () => {
           clipRule="evenodd"
         />
       </svg>
-    </a>
+    </button>
   );
 };
 

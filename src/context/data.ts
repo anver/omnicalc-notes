@@ -31,7 +31,8 @@ A paragraph with *emphasis* and **strong importance**.
 **Cons**
 
 * [x] No option to edit the note
-
+* [x] No pagination controls
+* [x] No persistent storage option
 
 *I still hope this app can be improved so much better*
 `,

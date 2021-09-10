@@ -28,7 +28,13 @@ const SidebarDesktop = () => {
             </nav>
           </div>
           <div className="flex-shrink-0 flex border-t border-gray-200 p-4">
-            <a href="#" className="flex-shrink-0 w-full group block">
+            <button
+              className="flex-shrink-0 w-full group block"
+              onClick={e => {
+                e.preventDefault();
+                window.open("https://github.com/anver", "_blank");
+              }}
+            >
               <div className="flex items-center">
                 <div>
                   <img
@@ -42,19 +48,11 @@ const SidebarDesktop = () => {
                     Anver Sadutt
                   </p>
                   <p className="text-xs font-medium text-gray-500 group-hover:text-gray-700">
-                    <a
-                      href="https://github.com/anver"
-                      onClick={e => {
-                        e.preventDefault();
-                        window.open("https://github.com/anver", "_blank");
-                      }}
-                    >
-                      View profile
-                    </a>
+                    View profile
                   </p>
                 </div>
               </div>
-            </a>
+            </button>
           </div>
           <div className="flex">
             <GithubSourceButton />
